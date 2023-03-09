@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('../components/head.ejs', { title: 'Sobre' }); %>
+
+    <body>
+        <%- include('../components/header.ejs'); %>
+            <div class="content">
+
+                <div class="paginasobre">
+                    <div id="titulosobre">Sobre</div>
+                    <div class="conteudosobre">
+                        Este projeto foi realizado por Guilherme Kato Pavesi, aluno do instituto INFNET. Após ser
+                        proposto pelo instituto para a realização de um
+                        projeto que converta inputs do usuario em um html para pdf, eu, Guilherme, decidi fazer uma
+                        ordem de serviço de uma fictícia loja de
+                        manutenção de celulares e tablets.
+                    </div>
+                    <div id="fotosobre"><img src="/img/fotogui.jpg" alt="fotogui"></div>
+                    <div class="abaixoimagem">Link para as redes sociais</div>
+                    <div class="imgs">
+                        <a href="https://www.facebook.com/guilherme.pavesi">
+                            <img alt="face"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/480px-Facebook_logo_%28square%29.png"
+                                width="40" height="40"> </a>
+                        <a href="https://gitlab.com/guilherme.pavesi">
+                               <img alt="gitlab"
+                                    src="https://gitlab.com/uploads/-/system/project/avatar/14619648/logo-extra-whitespace.png" width="40"
+                                    height="40"> </a>
+                        <a href="https://www.linkedin.com/in/guilherme-pavesi-15552520a/">
+                                <img alt="linkedin"
+                                        src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG38.png"
+                                        width="40" height="40"> </a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <%- include('../components/footer.ejs'); %>
+    </body>
+
+</html>

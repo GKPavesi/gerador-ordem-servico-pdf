@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('../components/head.ejs', { title: 'Gerador de Ordem de Serviço' }); %>
+
+    <body>
+        <%- include('../components/header.ejs'); %>
+            <div class="content">
+                <div id="form">
+                    <div id="titulo">Formulário para cadastrar a ordem de serviço</div>
+                    <form action="/gerador" method="POST">
+                        <div class="informacoes">Informações do cliente</div>
+                        <div class="grupo">
+                            <div class="form-group">
+                                <label for="nome:">Nome do cliente:</label>
+                                <input type="text" name="nome" placeholder="Nome completo do cliente" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sexo">Sexo do cliente:</label>
+                                <select name="sexo" id="sexo" required>
+                                    <option value="">---</option>
+                                    <% opcoessexos.map(item => { %>
+                                        <option value="<%= item.value %>"><%= item.label %></option>
+                                        <% }) %>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="endereço">Endereço do cliente:</label>
+                            <input type="text" name="endereço" placeholder="Endereço completo do cliente" required>
+                        </div>
+                        <div class="grupo">
+                            <div class="form-group">
+                                <label for="cpfcnpj">Cpf/cnpj do cliente:</label>
+                                <input type="text" name="cpfcnpj" placeholder="Apenas números" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email do cliente:</label>
+                                <input type="email" name="email" placeholder="Email do cliente" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefone">Telefone do cliente:</label>
+                                <input type="tel" name="telefone" placeholder="Telefone de contato do cliente" required>
+                            </div>
+                        </div>
+                        <div class="informacoes">Informações do aparelho</div>
+                        <div class="grupo">
+                            <div class="form-group">
+                                <label for="equipamento">Equipamento:</label>
+                                <select name="equipamento" id="equipamento" required>
+                                    <option value="">---</option>
+                                    <% opcoesequipamentos.map(item => { %>
+                                        <option value="<%= item.value %>"><%= item.label %></option>
+                                        <% }) %>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="marca">Marca:</label>
+                                <select name="marca" id="marca" required>
+                                    <option value="">---</option>
+                                    <% opcoesmarcascelulares.map(item => { %>
+                                        <option value="<%= item.value %>"><%= item.label %></option>
+                                        <% }) %>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="modelo">Modelo:</label>
+                                <input type="text" name="modelo" placeholder="Modelo do equipamento" required>
+                            </div>
+                        </div>
+                        <div class="informacoes">Dados do reparo</div>
+                        <div class="form-group">
+                            <label for="diagnostico">Diagnóstico:</label>
+                            <textarea name="diagnostico" class="textosgrandes" cols="30" rows="8" placeholder="Diagnóstico do equipamento" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="solucao">Solução:</label>
+                            <textarea name="solucao" class="textosgrandes" cols="30" rows="8" placeholder="Solução utilizada" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pecasutilizadas">Peças que serão trocadas:</label>
+                            <textarea name="pecasutilizadas" class="textosgrandes" cols="30" rows="4" placeholder="Peças trocadas ou utilizadas no serviço" required></textarea>
+                        </div>
+                        <div class="grupo">
+                            <div class="form-group">
+                                <label for="dataentrega">Data para entrega:</label>
+                                <input type="date" name="dataentrega" placeholder="Data para entrega do aparelho"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tecnicoresponsavel">Técnico:</label>
+                                <select name="tecnicoresponsavel" id="tecnicoresponsavel" required>
+                                    <option value="">---</option>
+                                    <% opcoestecnicos.map(item => { %>
+                                        <option value="<%= item.value %>"><%= item.label %></option>
+                                        <% }) %>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="informacoes">Informações do serviço</div>
+                        <div class="grupo">
+                            <div class="form-group">
+                                <label for="totalservico">Total do serviço:</label>
+                                <input type="number" min="1" step="any" name="totalservico" placeholder="Total do serviço em R$" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="garantia">Garantia:</label>
+                                <select name="garantia" id="garantia" required>
+                                    <option value="">---</option>
+                                    <% opcoesgarantia.map(item => { %>
+                                        <option value="<%= item.value %>"><%= item.label %></option>
+                                        <% }) %>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="statuspagamento">Status do Pagamento:</label>
+                                <select name="statuspagamento" id="statuspagamento" required>
+                                    <option value="">---</option>
+                                    <% opcoespagamentos.map(item => { %>
+                                        <option value="<%= item.value %>"><%= item.label %></option>
+                                        <% }) %>
+                                </select>
+                            </div>
+                        </div>
+                            <button>Enviar</button>
+                </div>
+                </form>
+            </div>
+            </div>
+            <%- include('../components/footer.ejs'); %>
+    </body>
+
+</html>
+
+
+
+
+<!--- 
+Nome do cliente
+endereço
+cpf/cnpj
+telefone
+sexo
+                        numero da ordem de serviço
+                        hora de emissão
+
+equipamento ou ativo
+marca
+modelo
+
+diagnóstico
+
+solução
+
+peças trocadas ou utilizadas no serviço
+
+                    data do serviço
+data da entrega
+técnico responsável
+total do serviço
+garantia
+
+status pagamento (pago, parcelado, pagará na retirada) --->

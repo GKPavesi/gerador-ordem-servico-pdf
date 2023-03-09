@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordem de Serviço</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+        }
+
+        #cabecalho {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            flex: 1;
+        }
+        .textotitulo {
+            text-align: center;
+        }
+        .logo {
+            max-width: 100px;
+        }
+        .titulocoluna {
+            border: 1px solid black;
+            border-collapse: collapse;
+            color: white;
+            background-color: #696969;
+            font-size: 18px;
+            padding: 5px;
+            font-weight: 600;
+        }
+
+        table.a {
+            table-layout: fixed;
+             width: 100%;  
+        }
+
+        table.a, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        }
+
+        table.a, td {
+            padding: 10px;
+            background-color: #F2F2F0;
+        }
+
+        .span1 {
+            margin-bottom: 3px;
+            font-weight: bold;
+        }
+
+        .infcoluna {
+            display: flex;
+            flex-direction: column;
+        }
+
+        table.b {
+            table-layout: fixed;
+             width: 100%; 
+             height: 123px; 
+        }
+
+        table.b, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        }
+
+        table.b, td {
+            padding: 10px;
+            background-color: #F2F2F0;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .infcoluna2 {
+            
+            display: flex;
+            flex-direction: row;
+        }
+
+        #span2 {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .textao {
+            white-space: pre-line;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="cabecalho">
+        <div>
+        <img class="logo" src="https://infos-geek.com/wp-content/uploads/2021/07/comment-eteindre-ou-allumer-7.png?ezimgfmt=rs:256x256/rscb77/ng:webp/ngcb77" alt="Logo">
+        </div>
+        <div class="textotitulo"> <h2>Ordem de Serviço <%= nrordem %></h2>
+            <h2> GKPHONES</h2></div>
+        <div>    
+        <img class="logo" src="https://infos-geek.com/wp-content/uploads/2021/07/comment-eteindre-ou-allumer-7.png?ezimgfmt=rs:256x256/rscb77/ng:webp/ngcb77" alt="Logo">
+        </div>
+    </div>
+
+    <div class="titulocoluna">Cliente</div>
+
+    <table class="a">
+        <tr>
+            <td><div class="infcoluna"><span class="span1">Nome:</span> <%= nome %></div></td>
+            <td><div class="infcoluna"><span class="span1">Sexo:</span> <%= sexo %></div></td>
+
+        </tr>
+        <tr">
+            <td><div class="infcoluna"><span class="span1">Endereço:</span> <%= endereço %></div></td>
+            <td><div class="infcoluna"><span class="span1">Cpf ou Cnpj:</span> <%= cpfcnpj %></div></td>
+        </tr>
+        <tr>
+            <td><div class="infcoluna"><span class="span1">Email:</span> <%= email %></div></td>
+            <td><div class="infcoluna"><span class="span1">Telefone:</span> <%= telefone %></div></td>
+        </tr>
+    </table>
+
+    <div class="titulocoluna">Equipamento</div>
+    <table class="a">
+        <tr>
+            <td><div class="infcoluna"><span class="span1">Equipamento:</span> <%= equipamento %></div></td>
+            <td><div class="infcoluna"><span class="span1">Marca:</span> <%= marca %></div></td>
+            <td><div class="infcoluna"><span class="span1">Modelo:</span> <%= modelo %></div></td>       
+        </tr>
+    </table>
+
+    <div class="titulocoluna">Diagnóstico</div>
+
+    <table class="b">
+        <tr>
+            <td><span class="textocolunagrande"><div class="infcoluna"><span class="span1">Diagnóstico:</span> <div class="textao"> <%= diagnostico %> </div></div></span></td>
+        </tr>
+    </table>
+
+    <div class="titulocoluna">Solução</div>
+
+    <table class="b">
+        <tr>
+            <td><span class="textocolunagrande"><div class="infcoluna"><span class="span1">Solução:</span> <div class="textao"> <%= solucao %> </div></div></span></td>
+        </tr>
+    </table>
+
+    <div class="titulocoluna">Peças Trocadas</div>
+
+    <table class="b">
+        <tr>
+            <td><span class="textocolunagrande"><div class="infcoluna"><span class="span1">Peças Trocadas:</span> <div class="textao"> <%= pecasutilizadas %></div></div></span></td>
+        </tr>
+    </table>
+
+    <div class="titulocoluna">Serviço</div>
+    <table class="a">
+        <tr>
+            <td><div class="infcoluna"><span class="span1">Data de entrega:</span> <%= dataentrega %></div></td>
+            <td><div class="infcoluna"><span class="span1">Técnico responsável:</span> <%= tecnicoresponsavel %></div></td>
+            <td><div class="infcoluna"><span class="span1">Total do Serviço:</span> <div class="infcoluna2"> <span id="span2">R$</span> <%= totalservico %> </div></div></td>
+        </tr>
+    </table>
+ 
+    <table class="a">
+        <tr>
+            <td><div class="infcoluna"><span class="span1">Garantia:</span> <%= garantia %></div></td>
+            <td><div class="infcoluna"><span class="span1">Status pagamento:</span> <%= statuspagamento %></div></td>
+            <td><div class="infcoluna"><span class="span1">Contato GKPHONES:</span> (xx)xxxxx-xxxx </div></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
